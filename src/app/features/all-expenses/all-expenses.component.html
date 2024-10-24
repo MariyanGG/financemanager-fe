@@ -1,0 +1,68 @@
+<div class="expenses-header">
+    <h3>Expenses for {{budget.month + '-01' | date: 'MMMM'}} {{budget.year}}</h3>
+    <div>
+        <button mat-icon-button color="primary" matTooltip="Add new expense" (click)="openAddExpenseDialog(false)">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let date of expenseDates">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ date }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <ul class="expense-list">
+            <li class="list-item" *ngFor="let expense of expensesGroupedByDate[date]">
+                <div>
+                    <span>{{ expense.description }}</span> -
+                    <span>${{ expense.amount | number:'1.2-2' }}</span>
+                </div>
+                <button mat-icon-button color="warn" matTooltip="Delete expense" (click)="deleteExpense(expense.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </li>
+        </ul>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+<div class="expenses-header">
+
+</div>
+<mat-card class="future-expenses-section">
+    <div class="future-expenses-header">
+        <h3>Future Expenses for {{budget.month + '-01' | date: 'MMMM'}} {{budget.year}}</h3>
+        <div>
+            <button mat-icon-button color="primary" matTooltip="Add new expense" (click)="openAddExpenseDialog(false)">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+    <table mat-table [dataSource]="upcomingExpenses" class="mat-elevation-z8">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let expense"> {{expense.dueDate | date:'shortDate'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let expense"> {{expense.budgetCategoryExpense.category}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let expense"> {{expense.amount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let expense"> {{expense.description}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="upcomingExpensesColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: upcomingExpensesColumns;"></tr>
+    </table>
+</mat-card>

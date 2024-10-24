@@ -1,0 +1,27 @@
+<h1 mat-dialog-title align="center">Add Budget Expence Category</h1>
+<div mat-dialog-content align="center">
+    <form [formGroup]="budgetCategoryForm">
+        <div class="form-field">
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" [value]="category">
+                        {{ category }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-field">
+            <mat-form-field>
+                <mat-label>Limit</mat-label>
+                <input matInput formControlName="limit" required>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+
+<div class="mat-dialog-actions">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!budgetCategoryForm.valid" (click)="onSave()">Save</button>
+</div>

@@ -1,0 +1,60 @@
+mat-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.budget-section {
+  text-align: center;
+}
+
+.budget-header {
+  padding-bottom: 10px;
+
+  :first-child {
+    display: flex;
+    justify-content: left;
+  }
+
+  :nth-child(2) {
+    display: flex;
+    justify-content: center;
+
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+}
+
+.mat-column-progress {
+  width: 20vw;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+  display: none !important;
+}
+
+.categories-header,
+.expenses-header,
+.future-expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-icon-button {
+  margin-left: auto;
+}
+
+.expenses-section .mat-paginator {
+  margin-top: 1vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}

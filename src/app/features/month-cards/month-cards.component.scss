@@ -1,0 +1,96 @@
+.create-budget-container {
+    margin: 1rem;
+    opacity: 70%
+}
+
+.year-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.year-title {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.month-card {
+    position: relative;
+    padding: 0 15px 15px 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 24px;
+        padding: 2px;
+        background: linear-gradient(135deg, rgba(174, 160, 189, 0.5), rgba(119, 99, 141, 0) 100%);
+        pointer-events: none;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0;
+
+        .card-title {
+            flex: 1;
+            text-align: center;
+        }
+    }
+}
+
+
+
+.overview {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.box {
+    text-align: center;
+}
+
+.box-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.box-value {
+    font-size: 24px;
+}
+
+table {
+    width: 100%;
+}
+
+.overview-card {
+    background-color: #f0f0f0;
+    padding: 8px 40px;
+    border-radius: 24px;
+}
+
+.expense-over-budget {
+    border: 2px solid #ff4d4d;
+}
+
+.expense-within-budget {
+    border: 2px solid #4caf50;
+}

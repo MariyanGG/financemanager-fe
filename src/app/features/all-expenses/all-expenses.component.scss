@@ -1,0 +1,67 @@
+mat-accordion {
+    margin: 2rem;
+}
+
+.list-item {
+    display: flex;
+    justify-content: left;
+}
+
+.expense-list li {
+    list-style-type: none;
+    align-items: center;
+}
+
+.expense-list li::before {
+    content: '•';
+    margin-right: 1rem;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.expenses-header {
+    h3 {
+        font-weight: 700;
+    }
+
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-expansion-panel {
+    margin-bottom: 1rem;
+}
+
+.future-expenses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-icon-button {
+    margin-left: auto;
+}
+
+.expenses-section .mat-paginator {
+    margin-top: 1vh;
+}
+
+.future-expenses-section {
+    margin: 2rem;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    background-color: lightgray !important;
+    color: lightgray !important;
+}
+
+.mat-expansion-panel-header:hover {
+    background-color: lightgray !important;
+    color: lightgray !important;
+
+}
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 16px !important;
+}
